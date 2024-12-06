@@ -1,3 +1,7 @@
 kagglehub
 psycopg2
 pandas
+Flask
+streamlit
+seaborn
+scikit-learn

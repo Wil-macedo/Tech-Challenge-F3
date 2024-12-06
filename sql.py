@@ -132,9 +132,8 @@ class SQL:
             result = conn.fetchall()
             
             if closeConn:
-                conn.close()
-                connection.close()
-            
+                self.closeConnection()
+                
             return result
             
         except Exception as ex:

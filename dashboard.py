@@ -1,7 +1,9 @@
-import pandas as pd
+import matplotlib.pyplot as plt
 import streamlit as st
 import seaborn as sns
-import matplotlib.pyplot as plt
+import pandas as pd
+from sql import *
+import os
 
 # Supressão de warnings
 import warnings
@@ -13,12 +15,53 @@ colors = ["#0101DF", "#DF0101"]
 # Função para carregar os dados
 @st.cache_data
 def load_data(file_path):
-    return pd.read_csv(file_path)
+    
+    # Recebe URL pública com os dados armazenados no S3, porém estamos obtendo os dados diretamente do banco de dados.
+    
+    columnNames = ["Time",
+                "V1",
+                "V2",
+                "V3",
+                "V4",
+                "V5",
+                "V6",
+                "V7",
+                "V8",
+                "V9",
+                "V10",
+                "V11",
+                "V12",
+                "V13",
+                "V14",
+                "V15",
+                "V16",
+                "V17",
+                "V18",
+                "V19",
+                "V20",
+                "V21",
+                "V22",
+                "V23",
+                "V24",
+                "V25",
+                "V26",
+                "V27",
+                "V28",
+                "Amount",
+                "Class"]
+
+    rows = sqlSelect("SELECT * FROM datacredit")
+    print("ROWS RETURNED: ",len(rows))
+    df = pd.DataFrame(rows, columns=columnNames)
+
+    return df # pd.read_csv(file_path)
 
 # Carregando os dados
 st.title("Análise de Transações com Cartões de Crédito")
 st.sidebar.header("Configurações")
-file_path = st.sidebar.text_input("Insira o caminho do arquivo CSV:", r'C:\Users\AGFAKZZ\Desktop\FIAP\Fase 3 - Arquitetura ML e Aprendizado\creditcard.csv\creditcard.csv')
+
+# Base de dados .CSV em bucket publico.
+file_path = st.sidebar.text_input("Insira o caminho do arquivo CSV:", "https://tech-challenge-will.s3.us-east-1.amazonaws.com/TC_FASE_3/base.csv")
 
 if file_path:
     try:

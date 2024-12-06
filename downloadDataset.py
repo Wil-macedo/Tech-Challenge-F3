@@ -4,7 +4,7 @@ import os
 
 try:
     # Download latest version
-    path = kagglehub.dataset_download("mlg-ulb/creditcardfraud")
+    path = kagglehub.dataset_download("mlg-ulb/creditcardfraud", force_download=True)
 
     files = os.listdir(path)
     destination = os.path.join(os.path.abspath(os.path.curdir),"DATASET")
