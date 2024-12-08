@@ -1,7 +1,10 @@
+keras
 kagglehub
 psycopg2
-pandas
 Flask
 streamlit
+pandas
 seaborn
+matplotlib
 scikit-learn
+imbalanced-learn

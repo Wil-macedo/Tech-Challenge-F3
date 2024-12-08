@@ -675,7 +675,8 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import numpy as np
 from sklearn.metrics import confusion_matrix
-from tensorflow.keras.layers import Dense, Dropout, Flatten  # or whatever layers you need
+from keras.layers import Dense, Dropout, Flatten
+
 import keras
 from keras import backend as K
 from keras.models import Sequential
@@ -691,7 +692,7 @@ undersample_model = Sequential([
     Dense(2, activation='softmax')
 ])
 
-from tensorflow.keras.optimizers import Adam
+from keras.optimizers import Adam
 
 # Corrected optimizer instantiation
 undersample_model.compile(optimizer=Adam(learning_rate=0.001), loss='sparse_categorical_crossentropy', metrics=['accuracy'])
