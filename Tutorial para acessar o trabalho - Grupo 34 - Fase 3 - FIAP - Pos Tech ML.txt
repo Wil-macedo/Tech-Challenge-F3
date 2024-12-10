@@ -1,8 +1,17 @@
 Link do repositório do Github: https://github.com/Wil-macedo/Tech-Challenge-F3
-Link do vídeo explicativo no YouTube: 
+Link do vídeo explicativo no YouTube: https://www.youtube.com/watch?v=k0QvrCU8xEg
 
 Instruções
 
 1) O arquivo "Modelo de ML de detecção de fraudes.ipynb" do Github possui todo o notebook de desenvolvimento do modelo de Machine Learning
-2) Para visualizar a aplicação Streamlit alimentada pelo modelo, deve-se abrir o arquivo "dashboard.py" do Github em alguma IDE e digitar o comando 
-"streamlit run dasboard.py" em um novo terminal para ser direcionado até o site da aplicação em uma localhost
+
+2) Executar o comando para instalação das dependências: pip install -r requirements.txt
+
+3) Para visualizar a aplicação Streamlit alimentada pelo modelo, deve-se abrir o arquivo "dashboard.py" do Github em alguma IDE e digitar o comando 
+"python -m streamlit run dasboard.py" em um novo terminal para ser direcionado até o site da aplicação em uma localhost
+
+4) Foi feito deploy do dashboard em: 
+tcfase3-embnfnazcnf4gqhf.brazilsouth-01.azurewebsites.net
+É uma app servisse Free então pode apresentar instabilidades.
+
+5) Conectores python SQL, autenticação com o banco estão no código do GitHub.
