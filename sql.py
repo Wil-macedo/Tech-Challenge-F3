@@ -74,30 +74,6 @@ class SQL:
         return query, parameters
     
     
-    def sqlExecuteMany(self, query: Union[str, tuple], closeConn=True):
-        """
-            USE TO: INSERT, UPDATE, DELETE
-            *** closeConn: If use to INSERT/ UPDATE using FOR change to False ***
-        """
-        try:
-            query, parameters = self.formatQuery(query)
-            
-            connection = self.connect()
-            conn = connection.cursor()
-            conn.executemany(query, parameters)
-            connection.commit()
-
-            if closeConn:
-                self.closeConnection()
-                
-            print("COMANDO EFETUADO COM SUCESSO !")
-            
-        except Exception as ex:
-            print(f"ERRO sqlExecute - {str(ex)}")
-            self.closeConnection()
-
-    
-    
     def sqlExecute(self, query: Union[str, tuple], closeConn=True):
         """
             USE TO: INSERT, UPDATE, DELETE
@@ -145,10 +121,6 @@ _sql = SQL()
 def sqlExecute(query: Union[str, tuple], closeConn=True):
     return _sql.sqlExecute(query, closeConn)
     
-
-def sqlExecuteMany(query: Union[str, tuple], closeConn=True):
-    return _sql.sqlExecuteMany(query, closeConn)
-
     
 def sqlSelect(query:str, closeConn=True):
     return _sql.sqlSelect(query, closeConn)

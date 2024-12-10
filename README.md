@@ -1,1 +1,0 @@
-# Tech-Challenge-F3

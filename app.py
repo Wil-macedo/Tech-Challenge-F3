@@ -21,7 +21,7 @@ def index():
 def streamlit_app():
     try:
         # Apontar para o localhost em um container docker causa conflito entre o container e o host.
-        return redirect(f"https://tcfase3-embnfnazcnf4gqhf.brazilsouth-01.azurewebsites.net:8070")
+        return redirect(f"http://localhost:8070")
     except Exception as ex:
         print("streamlit_app", str(ex))
 
