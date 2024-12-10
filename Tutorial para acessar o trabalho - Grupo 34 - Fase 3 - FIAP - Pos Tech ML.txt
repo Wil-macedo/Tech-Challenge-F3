@@ -3,15 +3,21 @@ Link do vídeo explicativo no YouTube: https://www.youtube.com/watch?v=k0QvrCU8x
 
 Instruções
 
-1) O arquivo "Modelo de ML de detecção de fraudes.ipynb" do Github possui todo o notebook de desenvolvimento do modelo de Machine Learning
+1 - O arquivo "Modelo de ML de detecção de fraudes.ipynb" no GitHub contém todo o notebook de desenvolvimento do modelo de Machine Learning.
 
-2) Executar o comando para instalação das dependências: pip install -r requirements.txt
 
-3) Para visualizar a aplicação Streamlit alimentada pelo modelo, deve-se abrir o arquivo "dashboard.py" do Github em alguma IDE e digitar o comando 
-"python -m streamlit run dasboard.py" em um novo terminal para ser direcionado até o site da aplicação em uma localhost
+2 - Execute o comando para instalar as dependências:
+    pip install -r requirements.txt
 
-4) Foi feito deploy do dashboard em: 
-tcfase3-embnfnazcnf4gqhf.brazilsouth-01.azurewebsites.net
-É uma app servisse Free então pode apresentar instabilidades.
 
-5) Conectores python SQL, autenticação com o banco estão no código do GitHub.
+3 - Para visualizar a aplicação Streamlit alimentada pelo modelo, abra o arquivo "dashboard.py" disponível no GitHub em alguma IDE e 
+execute o seguinte comando em um novo terminal:
+    "python -m streamlit run dasboard.py", para ser direcionado até o site da aplicação em uma localhost
+
+
+4 - O deploy do dashboard foi realizado em:
+    tcfase3-embnfnazcnf4gqhf.brazilsouth-01.azurewebsites.net
+    É uma App Service gratuita, então pode apresentar instabilidades.
+
+
+5 - Os conectores Python para SQL e a autenticação com o banco de dados estão disponíveis no código do repositório do GitHub.
