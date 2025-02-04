@@ -14,54 +14,57 @@ colors = ["#0101DF", "#DF0101"]
 
 # Função para carregar os dados
 @st.cache_data
-def load_data(file_path):
+def load_data(file_path:str):
     
     # Recebe URL pública com os dados armazenados no S3, porém estamos obtendo os dados diretamente do banco de dados.
     
-    columnNames = ["Time",
-                "V1",
-                "V2",
-                "V3",
-                "V4",
-                "V5",
-                "V6",
-                "V7",
-                "V8",
-                "V9",
-                "V10",
-                "V11",
-                "V12",
-                "V13",
-                "V14",
-                "V15",
-                "V16",
-                "V17",
-                "V18",
-                "V19",
-                "V20",
-                "V21",
-                "V22",
-                "V23",
-                "V24",
-                "V25",
-                "V26",
-                "V27",
-                "V28",
-                "Amount",
-                "Class"]
+    if not file_path.endswith(".csv"):
+        columnNames = ["Time",
+                    "V1",
+                    "V2",
+                    "V3",
+                    "V4",
+                    "V5",
+                    "V6",
+                    "V7",
+                    "V8",
+                    "V9",
+                    "V10",
+                    "V11",
+                    "V12",
+                    "V13",
+                    "V14",
+                    "V15",
+                    "V16",
+                    "V17",
+                    "V18",
+                    "V19",
+                    "V20",
+                    "V21",
+                    "V22",
+                    "V23",
+                    "V24",
+                    "V25",
+                    "V26",
+                    "V27",
+                    "V28",
+                    "Amount",
+                    "Class"]
 
-    rows = sqlSelect("SELECT * FROM datacredit")
-    print("ROWS RETURNED: ",len(rows))
-    df = pd.DataFrame(rows, columns=columnNames)
+        rows = sqlSelect("SELECT * FROM datacredit")
+        print("ROWS RETURNED: ",len(rows))
+        df = pd.DataFrame(rows, columns=columnNames)
+    else:
+        df = pd.read_csv(file_path)
 
-    return df # pd.read_csv(file_path)
+    return df
 
 # Carregando os dados
 st.title("Análise de Transações com Cartões de Crédito")
 st.sidebar.header("Configurações")
 
 # Base de dados .CSV em bucket publico.
-file_path = st.sidebar.text_input("Insira o caminho do arquivo CSV:", "https://tech-challenge-will.s3.us-east-1.amazonaws.com/TC_FASE_3/base.csv")
+file_path = st.sidebar.text_input("Insira o caminho do arquivo CSV:", os.path.join(os.path.abspath(os.path.curdir),"DATASET","base.csv"))
 
 if file_path:
     try:
